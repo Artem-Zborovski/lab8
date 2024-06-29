@@ -13,14 +13,12 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->listView->setModel(model);
 
-    // Подключение сигналов и слотов
-
-    // Настройка диалога
+    
     dialog = new QDialog(this);
     dialog->setWindowTitle("Settings");
     dialog->setModal(true);
 
-    // Настройка меню
+    
     QMenuBar *menuBar = new QMenuBar(this);
     QMenu *fileMenu = new QMenu("File", this);
     QAction *exitAction = fileMenu->addAction("Exit");
@@ -68,7 +66,7 @@ void MainWindow::on_calculateButton_clicked()
     ui->resultLabel->setText("Result: " + QString::number(result));
 
     QStringList list = model->stringList();
-    list.append(QString::number(result));  // Преобразование qint64 в QString
+    list.append(QString::number(result));  
     model->setStringList(list);
 }
 
